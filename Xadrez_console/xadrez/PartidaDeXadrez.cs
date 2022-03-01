@@ -20,12 +20,13 @@ namespace xadrez
             colocarPecas();
         }
 
-
+       
 
         public void ExecutaMovimento(Posicao origem, Posicao destino)
         {
+
             Peca p = tab.retirarPeca(origem);
-            p.incrementarQteMovimento();
+            
             Peca pecaCapturada = tab.retirarPeca(destino);
             tab.colocarPeca(p, destino);
         }
