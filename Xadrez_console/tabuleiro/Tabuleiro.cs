@@ -62,7 +62,6 @@ namespace tabuleiro
             return true;
 
         }
-
         public void validarPosicao(Posicao pos)
         {
             if (!posicaoValida(pos))
