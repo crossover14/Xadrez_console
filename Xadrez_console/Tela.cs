@@ -15,10 +15,21 @@ namespace Xadrez_console
             imprimirPecasCapturadas(partida);
             Console.WriteLine();
             Console.WriteLine("Turno " + partida.Turno);
-            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-            if (partida.xeque)
+            if (!partida.Terminada)
             {
-                Console.WriteLine("Xeque !!!");
+
+
+
+                Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                if (partida.xeque)
+                {
+                    Console.WriteLine("Xeque !!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE !");
+                Console.WriteLine("Vencedor: " + partida.JogadorAtual);
             }
         }
 
@@ -36,12 +47,12 @@ namespace Xadrez_console
 
         }
 
-        public static void imprimirConjunto(HashSet<Peca> conjunto )
+        public static void imprimirConjunto(HashSet<Peca> conjunto)
         {
             Console.Write("[");
             foreach (Peca x in conjunto)
             {
-                Console.Write(x  + " ");
+                Console.Write(x + " ");
             }
             Console.Write("]");
         }
@@ -63,7 +74,7 @@ namespace Xadrez_console
             Console.WriteLine("  a b c d e f g h");
         }
 
-        public static void ImprimirTabuleiro(Tabuleiro tab, bool [,] posicoesPossiveis)
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
@@ -73,7 +84,7 @@ namespace Xadrez_console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.Colunas; j++)
                 {
-                    if (posicoesPossiveis[i , j])
+                    if (posicoesPossiveis[i, j])
                     {
                         Console.BackgroundColor = fundoAlterado;
                     }
